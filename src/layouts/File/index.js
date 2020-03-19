@@ -9,10 +9,10 @@ const File = ({id, ownerId, filename}) => {
     };
 
     return (
-        <div className="col-md-4">
-            <div className="thumbnail">
-                <button onClick={handleRemove} type="button" className="close">
-                    <span aria-hidden="true">&times;</span>
+        <div className="BlockTwo">
+            <div className="">
+                <button onClick={handleRemove} type="button" className="CloseBlock">
+                    <span aria-hidden="true"><i className="far fa-times-circle"></i></span>
                 </button>
                 <img className="img-fluid img-thumbnail" src={`${process.env.REACT_APP_MEDIA_URL}/${filename}`} alt="" />
             </div>

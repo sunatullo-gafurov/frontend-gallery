@@ -75,7 +75,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="containner">
-                <div className="d-flex mt-4">
+                <div className="BlockFirst">
                     <FileList />
                 </div>
             </div>
