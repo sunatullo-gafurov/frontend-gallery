@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import WelcomePage from './layouts/WelcomePage';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import RegistrationForm from './components/RegistrationForm';
+import LoginForm from './components/LoginForm';
+import AuthenticatedRoute from './components/routes/AuthenticatedRoute';
+import Dashboard from './layouts/Dashboard';
+import NotFound from './layouts/NotFound';
+import Toolbar from './components/Toolbar';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Toolbar exact path="/" component={WelcomePage} />
+        <Toolbar exact path="/register" component={RegistrationForm} />
+        <Toolbar exact path="/login" component={LoginForm} />
+        <AuthenticatedRoute path="/dashboard" component={Dashboard} />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
