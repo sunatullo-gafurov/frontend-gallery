@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { FILE_UPLOAD_SUCCESS, FILE_UPLOAD_REQUEST, FILE_UPLOAD_ERROR, FETCH_FILES_REQUEST, 
     FETCH_FILES_SUCCESS, FETCH_FILES_ERROR, DISMISS_FETCH_ERROR_MESSAGE, FILE_REMOVE_REQUEST, 
-    FILE_REMOVE_SUCCESS, DISMISS_REMOVE_MESSAGE } from "../actions/actionTypes";
+    FILE_REMOVE_SUCCESS, DISMISS_REMOVE_MESSAGE, USER_LOGOUT } from "../actions/actionTypes";
 
 const initialListState = {
     files: [],
@@ -55,6 +55,10 @@ const filesListReducer = (state = initialListState, action) => {
 
         case DISMISS_REMOVE_MESSAGE: {
             return {...state, message: null, loading: false, error: null};
+        }
+
+        case USER_LOGOUT: {
+            return initialListState;
         }
 
         default:
